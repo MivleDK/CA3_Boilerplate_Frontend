@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style2.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import AllJokes from "./AllJokes";
 import AllScrape from "./AllScrape";
 import Login from "./Login";
@@ -8,48 +9,45 @@ import { Switch, Route, NavLink, useHistory } from "react-router-dom";
 
 const Header = ({ isLoggedIn, loginMsg, isAdmin, loginName }) => {
   return (
-    <ul className="header" id="header" >
-      <li>
-        <NavLink exact activeClassName="selected" to="/">
-          Home
+    <>
+      <Navbar bg="dark" variant="dark" id="header">
+        <Navbar.Brand href="#home">Hold E, Gruppe 8</Navbar.Brand>
+        <Nav className="mr-auto">
+          <NavLink className="nav-link" exact activeClassName="selected" href="/" to="/">
+            Home
         </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="selected" to="/jokes">
-          Jokes
+          <NavLink className="nav-link" activeClassName="selected" to="/jokes">
+            Jokes
         </NavLink>
-      </li>
-      {isLoggedIn && (
-        <>
-          <li>
-            <NavLink activeClassName="selected" to="/scrape">
+
+          {isLoggedIn && (
+            <NavLink className="nav-link" activeClassName="selected" to="/scrape" href="/scrape">
               Scrape
             </NavLink>
-          </li>
-        </>
-      )}
-      {isAdmin && (
-        <>
-          <li>
-            <NavLink activeClassName="selected" to="/admin">
-              Admin
+          )}
+          {isAdmin && (
+            <>
+              <li>
+                <NavLink className="nav-link" activeClassName="selected" to="/admin">
+                  Admin
             </NavLink>
-          </li>
-        </>
-      )}
-      <li>
-        <NavLink activeClassName="selected" to="/login-out">
-          {loginMsg}
-        </NavLink>
-      </li>
-      {isLoggedIn && (
-        <>
-          <li className="floatRight">
-            <span>Logged in as {loginName}</span>
-          </li>
-        </>
-      )}
-    </ul>
+              </li>
+            </>
+          )}
+          <NavLink className="nav-link" activeClassName="selected" to="/login-out">
+            {loginMsg}
+          </NavLink>
+          {isLoggedIn && (
+            <>
+              <li className="floatRight">
+                <span>Logged in as {loginName}</span>
+              </li>
+            </>
+          )}
+        </Nav>
+
+      </Navbar>
+    </>
   );
 };
 
@@ -122,7 +120,6 @@ function Home() {
 function Jokes() {
   return (
     <div className="pageContent">
-      <h2>Jokes</h2>
       <AllJokes />
     </div>
   );
@@ -131,7 +128,6 @@ function Jokes() {
 function Scrape() {
   return (
     <div className="pageContent">
-      <h2>Scrape</h2>
       <AllScrape />
     </div>
   );

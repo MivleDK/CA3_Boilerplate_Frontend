@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import facade from "./apiFacade";
+import { Form, Container, Row, Col, Button } from "react-bootstrap";
 
 
 function LogIn({ login }) {
@@ -16,12 +17,31 @@ function LogIn({ login }) {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onChange={onChange} >
-        <input placeholder="User Name" id="username" />
-        <input placeholder="Password" id="password" />
-        <button onClick={performLogin}>Login</button>
-      </form>
+
+      <Container>
+        <Row>
+          <Col>
+          </Col>
+          <Col>
+            <h2>Login</h2>
+            <Form onChange={onChange} className="mt-4">
+              <Form.Group controlId="loginForm">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" id="username" placeholder="Enter username" />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" id="password" placeholder="Enter password" />
+              </Form.Group>
+              <Button onClick={performLogin} variant="primary" type="submit">
+                Login
+                </Button>
+            </Form>
+          </Col>
+          <Col>
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 

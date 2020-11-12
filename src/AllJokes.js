@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { URLJokes } from "./settings";
 
 const AllJokes = () => {
@@ -18,15 +19,28 @@ const AllJokes = () => {
 
     return (
         <div>
-            <h4>Chuck Norris Joke:</h4>
-            <p>{joke.joke1}</p>
-            <p><a href={joke.joke1Reference}>{joke.joke1Reference}</a></p>
-            <hr />
-            <h4>Dad Joke:</h4>
-            <p>{joke.joke2}</p>
-            <p><a href={joke.joke2Reference}>{joke.joke2Reference}</a></p>
-            {console.log({ joke })}
-            <button onClick={() => fetchAllJokes()}>Get new jokes</button>
+
+            <Container>
+                <h2>Jokes</h2>
+                <Row className="mt-4">
+                    <Col>
+                        <h4>Chuck Norris Joke:</h4>
+                        <p><a href={joke.joke1Reference}>Source</a></p>
+                        <p>{joke.joke1}</p>
+
+                    </Col>
+                    <Col>
+                        <h4>Dad Joke:</h4>
+                        <p><a href={joke.joke2Reference}>Source</a></p>
+                        <p>{joke.joke2}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Button variant="primary mt-3" onClick={() => fetchAllJokes()}>Get new jokes</Button>
+                    </Col>
+                </Row>
+            </Container>
         </div>
 
     );

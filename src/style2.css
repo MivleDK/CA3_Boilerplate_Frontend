@@ -1,8 +1,3 @@
-/*
-This is the Horizontal Navigation Bar Example with Active/Current Navigation Link
-From here https://www.w3schools.com/css/css_navbar.asp
-*/
-
 ul.header {
   list-style-type: none;
   margin: 0;
@@ -27,7 +22,7 @@ ul.header li a:hover:not(.active) {
 }
 
 .selected {
-  background-color: #4caf50;
+  color: white !important;
 }
 
 table,
@@ -43,11 +38,15 @@ td {
 }
 
 .floatRight {
-  float: right !important;
+  position: absolute;
+  right: 0px;
+  margin-right: 10px;
+  margin-top: 6px;
+  color: white;
 }
 
 .pageContent {
-  margin: 5%;
+  margin: 2%;
 }
 
 .adminStyle {
